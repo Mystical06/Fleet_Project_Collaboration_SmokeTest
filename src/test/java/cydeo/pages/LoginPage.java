@@ -30,14 +30,14 @@ public class LoginPage extends BasePage {
     public void LoginAsUserTypes(String userType){
 
         if(userType.equalsIgnoreCase("driver")){
-            userName.sendKeys(ConfigurationReader.get("driver_username"));
-            password.sendKeys(ConfigurationReader.get("driver_password"));
+            userName.sendKeys(ConfigurationReader.get("driver.username"));
+            password.sendKeys(ConfigurationReader.get("all.pw"));
         } else if (userType.equalsIgnoreCase("salesmanager")){
-            userName.sendKeys(ConfigurationReader.get("salesmanager_username"));
-            password.sendKeys(ConfigurationReader.get("salesmanager_password"));
+            userName.sendKeys(ConfigurationReader.get("salesmanager.username"));
+            password.sendKeys(ConfigurationReader.get("all.pw"));
         } else if (userType.equalsIgnoreCase("storemanager")) {
-            userName.sendKeys(ConfigurationReader.get("storemanager_username"));
-            password.sendKeys(ConfigurationReader.get("storemanager_password"));
+            userName.sendKeys(ConfigurationReader.get("storemanager.username"));
+            password.sendKeys(ConfigurationReader.get("all.pw"));
         }
 
         loginBTN.click();
