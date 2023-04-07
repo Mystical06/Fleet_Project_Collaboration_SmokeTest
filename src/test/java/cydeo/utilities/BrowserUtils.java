@@ -212,7 +212,7 @@ for given duration
      * @param timeout
      * @return
      */
-    public static WebElement waitForClickablility(WebElement element, int timeout) {
+    public static WebElement waitClickability(WebElement element, int timeout) {
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), timeout);
         return wait.until(ExpectedConditions.elementToBeClickable(element));
     }
@@ -224,7 +224,7 @@ for given duration
      * @param timeout
      * @return
      */
-    public static WebElement waitForClickablility(By locator, int timeout) {
+    public static WebElement waitClickability(By locator, int timeout) {
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), timeout);
         return wait.until(ExpectedConditions.elementToBeClickable(locator));
 
@@ -475,5 +475,31 @@ for given duration
         new WebDriverWait(Driver.getDriver(), time).until(ExpectedConditions.presenceOfElementLocated(by));
     }
 
+    public static void clickWithTryCatch(By locator){
+        waitClickability(locator,5);
+        try {
+            Driver.getDriver().findElement(locator).click();
+        } catch (Exception e) {
+            try {
+                e.printStackTrace();
+                BrowserUtils.sleep(1);
+                Driver.getDriver().findElement(locator).click();
+            } catch (Exception exception) {
+                e.printStackTrace();
+                BrowserUtils.sleep(1);
+                Driver.getDriver().findElement(locator).click();
+            }
+        }
+
+    }
+
+    //static wait - Thread.sleep()
+    public static void wait(int seconds) {
+        try {
+            Thread.sleep(seconds * 1000L);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
 }
