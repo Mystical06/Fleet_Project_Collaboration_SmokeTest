@@ -1,5 +1,6 @@
 package cydeo.pages;
 
+import cydeo.utilities.BrowserUtils;
 import cydeo.utilities.ConfigurationReader;
 import cydeo.utilities.Driver;
 import org.openqa.selenium.WebElement;
@@ -24,6 +25,8 @@ public class LoginPage extends BasePage {
 	@FindBy(id = "_submit")
 	public WebElement loginBtn;
 
+	@FindBy(className = "oro-subtitle")
+	private WebElement pageSubtitle;
 
 	//---methods-----------------
 
@@ -61,4 +64,8 @@ public class LoginPage extends BasePage {
 		loginBtn.click();
 	}
 
+	public String getSubtitle(){
+		BrowserUtils.wait(1);
+		return pageSubtitle.getText();
+	}
 }
