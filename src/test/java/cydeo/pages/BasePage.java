@@ -32,7 +32,7 @@ public class BasePage {
     protected WebElement loaderMask;
 
 
-    public void DriverLogin(){
+    public void driverLogin(){
         Driver.getDriver().get(ConfigurationReader.getProperty("login.page.url"));
         inputUsername.sendKeys(ConfigurationReader.getProperty("driver.username"));
         inputPassword.sendKeys(ConfigurationReader.getProperty("all.pw"));
@@ -40,13 +40,13 @@ public class BasePage {
 
     }
 
-    public void SalesManagerLogin(){
+    public void salesManagerLogin(){
         Driver.getDriver().get(ConfigurationReader.getProperty("login.page.url"));
         inputUsername.sendKeys(ConfigurationReader.getProperty("salesmanager.username"));
         inputPassword.sendKeys(ConfigurationReader.getProperty("all.pw"));
         logInButton.click();
 
-    }    public void StoreManagerLogin(){
+    }    public void storeManagerLogin(){
         Driver.getDriver().get(ConfigurationReader.getProperty("login.page.url"));
         inputUsername.sendKeys(ConfigurationReader.getProperty("storemanager.username"));
         inputPassword.sendKeys(ConfigurationReader.getProperty("all.pw"));

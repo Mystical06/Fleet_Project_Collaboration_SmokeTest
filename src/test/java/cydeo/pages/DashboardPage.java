@@ -5,9 +5,11 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class DashboardPage_SalesManager extends BasePage{
+import java.util.List;
 
-    public DashboardPage_SalesManager(){
+public class DashboardPage extends BasePage{
+
+    public DashboardPage(){
         PageFactory.initElements(Driver.getDriver(),this);
     }
 
@@ -32,8 +34,13 @@ public class DashboardPage_SalesManager extends BasePage{
     @FindBy(xpath = "//*[@id=\"flash-messages\"]//div[.='Item deleted']")
     public WebElement itemDeletedMessage;
 
-    @FindBy(xpath = "//td[.='594.827']")
-    public WebElement deletedChassisNo;
+    @FindBy(xpath = "//td[@data-column-label='License Plate']")
+    public List<WebElement> licencePlateColumn;
+
+    @FindBy(xpath = "//table/tbody/tr[1]/td[2]")
+    public WebElement anyLicensePlate;
+
+
 
 
 
