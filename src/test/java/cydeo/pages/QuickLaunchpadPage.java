@@ -5,9 +5,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class QuickLaunchpadPage_Driver extends BasePage{
+public class QuickLaunchpadPage extends BasePage{
 
-    public QuickLaunchpadPage_Driver() {
+    public QuickLaunchpadPage() {
         PageFactory.initElements(Driver.getDriver(),this);
     }
 

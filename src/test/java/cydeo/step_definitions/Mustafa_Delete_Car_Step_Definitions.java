@@ -1,21 +1,17 @@
 package cydeo.step_definitions;
 
-import cydeo.pages.DashboardPage_SalesManager;
-import cydeo.pages.QuickLaunchpadPage_Driver;
+import cydeo.pages.DashboardPage;
+import cydeo.pages.QuickLaunchpadPage;
 import cydeo.utilities.Driver;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.junit.Assert;
-import org.openqa.selenium.Alert;
 import org.openqa.selenium.interactions.Actions;
-
-import java.util.List;
 
 public class Mustafa_Delete_Car_Step_Definitions {
 
-    DashboardPage_SalesManager dashboard = new DashboardPage_SalesManager();
-    QuickLaunchpadPage_Driver quickLaunchpad=new QuickLaunchpadPage_Driver();
+    DashboardPage dashboard = new DashboardPage();
+    QuickLaunchpadPage quickLaunchpad=new QuickLaunchpadPage();
     Actions action = new Actions(Driver.getDriver());
 
 
