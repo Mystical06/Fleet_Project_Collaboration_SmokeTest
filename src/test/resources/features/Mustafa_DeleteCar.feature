@@ -11,7 +11,7 @@ Scenario: User sees delete button and delete confirmation popup
   Then User clicks on Yes,Delete button
   Then User sees no permission message
 
-
+@wip
   Scenario: User sees delete button and delete confirmation popup
     Given User logs in as a "sales manager"
     When User clicks on Fleet tab
