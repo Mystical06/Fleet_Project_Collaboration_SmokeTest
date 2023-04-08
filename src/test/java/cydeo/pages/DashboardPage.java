@@ -13,7 +13,7 @@ public class DashboardPage extends BasePage{
         PageFactory.initElements(Driver.getDriver(),this);
     }
 
-    //Mustafa's Webelements starts here
+    //Mustafa's codes start here
 
     @FindBy(xpath = "/html/body/div[2]/div[2]/header/div[2]/ul/li[1]/a/span")
     public WebElement fleetOnQLaunchpad;
@@ -55,7 +55,7 @@ public class DashboardPage extends BasePage{
     @FindBy(xpath = "//table/tbody/tr[1]/td[2]")
     public WebElement anyLicensePlate2;
 
-//Mustafa's Webelements ends here
+//Mustafa's codes end here
 
 
 
