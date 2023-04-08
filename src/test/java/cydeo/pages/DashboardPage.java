@@ -52,10 +52,6 @@ public class DashboardPage extends BasePage{
     @FindBy(xpath = "//table/tbody/tr[1]/td[2]")
     public WebElement anyLicensePlate;
 
-    @FindBy(xpath = "//table/tbody/tr[1]/td[2]")
-    public WebElement anyLicensePlate2;
-
-
 //Mustafa's codes end here
 
 
