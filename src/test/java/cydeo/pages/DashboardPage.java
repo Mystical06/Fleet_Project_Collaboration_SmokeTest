@@ -43,6 +43,29 @@ public class DashboardPage extends BasePage{
     @FindBy(xpath = "//table/tbody/tr[1]/td[2]")
     public WebElement anyLicensePlate2;
 
+    @FindBy(xpath = "//i[@class='fa-filter hide-text']")
+    public WebElement driverFilterIcon;
+
+    @FindBy(xpath = "//a[@class='add-filter-button']")
+    public WebElement manageFilterButton;
+
+    @FindBy(xpath = "/html/body/div[2]/div[2]/div[1]/div[2]/div[3]/div[3]/div[1]/div/div[2]/ul/li[3]/label/span")
+    public  WebElement driverDropdown;
+
+    @FindBy(xpath = "//div[contains(@class, 'oro-drop-opener')]")
+    public WebElement driverAllButton;
+
+    @FindBy(xpath = "//button[@class='btn dropdown-toggle']")
+    public WebElement containsButton;
+
+    @FindBy(xpath = "//a[@data-value='4']")
+    public WebElement driverStartsWith;
+
+    @FindBy(xpath = "//input[@name='value']")
+    public WebElement valueEnterField;
+
+    @FindBy(xpath = "//button[contains(@class, 'btn-primary')]")
+    public WebElement updateBtn;
 
 
 

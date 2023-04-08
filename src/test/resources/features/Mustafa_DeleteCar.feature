@@ -1,3 +1,4 @@
+@wip
 Feature: Deleting a car
   User Story: As a 'Sales Manager', I should be able to delete a car
 
