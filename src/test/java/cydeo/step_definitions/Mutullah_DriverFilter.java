@@ -1,18 +1,12 @@
 package cydeo.step_definitions;
 
 import cydeo.pages.DashboardPage;
-import cydeo.pages.DropdownsPage;
 import cydeo.utilities.BrowserUtils;
-import cydeo.utilities.Driver;
 import io.cucumber.java.en.Then;
-import io.cucumber.java.eo.Se;
 import org.junit.Assert;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.Select;
 
-import java.util.ArrayList;
 import java.util.List;
+
 
 public class Mutullah_DriverFilter {
 
@@ -50,34 +44,37 @@ public class Mutullah_DriverFilter {
         Thread.sleep(3000);
     }
 
-    DropdownsPage dropdownsPage = new DropdownsPage();
     @Then("User sees all methods in the filter")
-    public void user_sees_all_methods_in_the_filter(List<String>expectedMethods) {
-        Select select = new Select(dropdownsPage.DriverAllDropdown);
-        List<WebElement> actualOptionsAsWebElement = select.getOptions();
+    public void user_sees_all_methods_in_the_filter(List<String>expectedDriverAllDropDown) {
 
-        List<String> actualOptionsAsString = new ArrayList<>();
+        List<String> actualDriverAllDropDown = BrowserUtils.driverAllDropdownOptionsAsString(dashboard.actualDropDownElements);
+        Assert.assertEquals(expectedDriverAllDropDown,actualDriverAllDropDown);
 
-        for (WebElement each : actualOptionsAsWebElement) {
-            actualOptionsAsString.add(each.getText());
-        }
-        Assert.assertEquals(expectedMethods,actualOptionsAsString);
-
+        System.out.println(expectedDriverAllDropDown);
+        System.out.println(actualDriverAllDropDown);
     }
 
+    //SECOND SCENARIO
+
     @Then("User clicks the StartsWith button")
-    public void user_clicks_the_starts_with_button() {
+    public void user_clicks_the_starts_with_button() throws InterruptedException {
         dashboard.driverStartsWith.click();
+        Thread.sleep(3000);
     }
 
     @Then("User send the valid key {string}")
-    public void user_send_the_valid_key(String keyword) {
-        dashboard.valueEnterField.sendKeys(keyword);
+    public void user_send_the_valid_key(String string) throws InterruptedException {
+        dashboard.valueEnterField.sendKeys(string);
+        Thread.sleep(2000);
         dashboard.updateBtn.click();
+        //dashboard.valueEnterField.sendKeys(Keys.BACK_SPACE);
+
+
+    }
 
 
 
     }
 
 
-}
+

@@ -529,4 +529,19 @@ for given duration
     }
 
 
+
+
+    public static List<String> driverAllDropdownOptionsAsString(List<WebElement> dropdownElement){
+
+        //List of all ACTUAL month <options> as a string
+        List<String> actualOptionsAsString= new ArrayList<>();
+
+        for (WebElement each : dropdownElement) {
+            actualOptionsAsString.add(each.getText());
+        }
+
+        return  actualOptionsAsString;
+
+    }
+
 }
