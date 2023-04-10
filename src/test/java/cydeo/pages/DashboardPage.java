@@ -67,6 +67,12 @@ public class DashboardPage extends BasePage{
     @FindBy(xpath = "//button[contains(@class, 'btn-primary')]")
     public WebElement updateBtn;
 
+    @FindBy(xpath = "//a[@class='dropdown-item choice-value']")
+    public List<WebElement> actualDropDownElements;
+
+
+
+
 
 
 
