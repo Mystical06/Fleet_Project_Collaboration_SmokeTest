@@ -49,7 +49,7 @@ public class DashboardPage extends BasePage{
     @FindBy(xpath = "//td[@data-column-label='License Plate']")
     public List<WebElement> licencePlateColumn;
 
-    @FindBy(xpath = "//table/tbody/tr[1]/td[2]")
+    @FindBy(xpath = "/html/body/div[2]/div[2]/div[1]/div[2]/div[3]/div[3]/div[2]/div[2]/div[2]/div/table/tbody/tr[1]/td[2]")
     public WebElement anyLicensePlate;
 
 //Mustafa's codes end here
