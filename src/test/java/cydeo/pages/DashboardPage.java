@@ -31,7 +31,7 @@ public class DashboardPage extends BasePage{
     @FindBy(xpath = "//span[.='Vehicles']")
     public WebElement vehiclesOption;
 
-    @FindBy(xpath = "/html/body/div[2]/div[2]/div[1]/div[2]/div[3]/div[3]/div[2]/div[2]/div[2]/div/table/tbody/tr[1]/td[21]/div/div/a")
+    @FindBy(xpath = "//table/tbody/tr[1]/td[21]/div/div/a")
     public WebElement threeDotsInCarsPage;
 
     @FindBy(xpath = "/html/body/ul/li/ul/li[3]")
