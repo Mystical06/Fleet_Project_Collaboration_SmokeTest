@@ -1,5 +1,6 @@
 package cydeo.pages;
 
+import cydeo.utilities.BrowserUtils;
 import cydeo.utilities.Driver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -7,10 +8,10 @@ import org.openqa.selenium.support.PageFactory;
 
 import java.util.List;
 
-public class DashboardPage extends BasePage{
+public class DashboardPage extends BasePage {
 
-    public DashboardPage(){
-        PageFactory.initElements(Driver.getDriver(),this);
+    public DashboardPage() {
+        PageFactory.initElements(Driver.getDriver(), this);
     }
 
     //Mustafa's codes start here
@@ -54,13 +55,62 @@ public class DashboardPage extends BasePage{
 
 //Mustafa's codes end here
 
+    //Fatma's codes starts from here
+
+   // @FindBy(xpath = "//*[@id=\"grid-custom-entity-grid-650707726\"]/div[2]/div[1]/div/div[3]/div[1]/div/a[1]")
+    //public WebElement filter;
 
 
+    //*[@id="grid-custom-entity-grid-650707726"]/div[2]/div[1]/div/div[3]/div[1]/div/a[1]
 
+    //*[@id="grid-custom-entity-grid-650707726"]/div[2]/div[1]/div/div[3]/div[1]/div/a[1]
+@FindBy(className = "fa-filter")
+public WebElement filter;
 
+  @FindBy(id="ui-multiselect-0-0-option-4")
+  public WebElement SelectChassisNumber;
 
+    @FindBy(className = "add-filter-button")
+    public WebElement ManageFilters;
+    @FindBy(xpath = "//div[contains(@class, 'oro-drop-opener')]")
+    public WebElement ChassisNumberButton;
 
+    @FindBy(xpath = "/html/body/div[2]/div[2]/div[1]/div[2]/div[3]/div[3]/div[1]/div/span/div[5]/div[2]/div/div[1]/button/span")
+    public WebElement MethodDropDown;
 
+   @FindBy(xpath = "//button[@class='btn dropdown-toggle']")
+    public WebElement SelectedMethodCheck;
+    @FindBy(xpath = "//a[@data-value='7']")
+    public WebElement BetweenMethod;
+
+    @FindBy(xpath = "//a[@data-value='8']")
+    public WebElement NotBetweenMethod;
+
+    @FindBy(xpath = "//a[@data-value='3']")
+    public WebElement EqualsMethod;
+
+    @FindBy(xpath = "//a[@data-value='4']")
+    public WebElement NotEqualsMethod;
+
+    @FindBy(xpath = "//a[@data-value='2']")
+    public WebElement MoreThanMethod;
+
+    @FindBy(xpath = "//a[@data-value='6']")
+    public WebElement LessThanMethod;
+
+    @FindBy(xpath = "//a[@data-value='1']")
+    public WebElement EqualsOrMoreThanMethod;
+
+    @FindBy(xpath = "//a[@data-value='5']")
+    public WebElement EqualsOrLessThanMethod;
+
+    @FindBy(xpath = "//a[@data-value='filter_empty_option']")
+    public WebElement IsEmptyMethod;
+
+    @FindBy(xpath = "//a[@data-value='filter_not_empty_option']")
+    public WebElement IsNotEmptyMethod;
+
+    //Fatma's codes end here
 
 
 
