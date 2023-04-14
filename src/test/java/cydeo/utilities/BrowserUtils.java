@@ -1,5 +1,6 @@
 package cydeo.utilities;
 
+import cydeo.pages.DashboardPage;
 import org.junit.Assert;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
@@ -506,7 +507,7 @@ for given duration
 
     public static List<String> driverAllDropdownOptionsAsString(List<WebElement> dropdownElement){
 
-        //List of all ACTUAL month <options> as a string
+        //List of all ACTUAL <options> as a string
         List<String> actualOptionsAsString= new ArrayList<>();
 
         for (WebElement each : dropdownElement) {
@@ -517,4 +518,15 @@ for given duration
 
     }
 
+    public static List<String> selectedNames(List<WebElement> selectedElement) {
+
+        //List of all ACTUAL <options> as a string
+        List<String> selectedNamesAsString = new ArrayList<>();
+
+        for (WebElement each : selectedElement) {
+            selectedNamesAsString.add(each.getText());
+        }
+        return selectedNamesAsString;
+
+    }
 }

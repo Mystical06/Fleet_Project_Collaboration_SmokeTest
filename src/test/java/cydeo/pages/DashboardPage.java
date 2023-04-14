@@ -52,6 +52,8 @@ public class DashboardPage extends BasePage{
     @FindBy(xpath = "/html/body/div[2]/div[2]/div[1]/div[2]/div[3]/div[3]/div[1]/div/div[2]/ul/li[3]/label/span")
     public  WebElement driverDropdown;
 
+    //Starts Mutullah's locators
+
     @FindBy(xpath = "//div[contains(@class, 'oro-drop-opener')]")
     public WebElement driverAllButton;
 
@@ -69,6 +71,15 @@ public class DashboardPage extends BasePage{
 
     @FindBy(xpath = "//a[@class='dropdown-item choice-value']")
     public List<WebElement> actualDropDownElements;
+
+    @FindBy(xpath = "//td[@data-column-label='Driver']")
+    public List<WebElement> selectedNamesOnPage;
+
+    @FindBy(xpath = "//input[@name='value']")
+    public WebElement enteredKeyword;
+
+    @FindBy(xpath = "//a[@data-value='5']")
+    public WebElement driverEndsWith;
 
 
 
