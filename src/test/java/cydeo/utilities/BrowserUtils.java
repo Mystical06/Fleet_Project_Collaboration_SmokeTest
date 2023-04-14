@@ -501,5 +501,17 @@ for given duration
             e.printStackTrace();
         }
     }
+    public static List<String> driverIsAnyOf(List<WebElement> dropdownElement){
+
+        //List of all ACTUAL <options> as a string
+        List<String> actualOptionsAsString= new ArrayList<>();
+
+        for (WebElement each : dropdownElement) {
+            actualOptionsAsString.add(each.getText());
+        }
+
+        return  actualOptionsAsString;
+
+    }
 
 }
