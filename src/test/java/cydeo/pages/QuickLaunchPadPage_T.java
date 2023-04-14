@@ -52,10 +52,11 @@ public class QuickLaunchPadPage_T {
     @FindBy(xpath = "//button[@class='btn btn-primary filter-update']")
     public WebElement updateBtn;
 
-    @FindBy(xpath = "//button[@class='btn dropdown-toggle']")
+    @FindBy(xpath = "(//a[@class = 'dropdown-item choice-value'])[2]")
     public WebElement isNotAnyOf;
 
-
+    @FindBy(xpath = "//tbody[@class='grid-body']/tr/td[2]")
+    public List<WebElement> compactCorrespondingValue;
 
 
 

@@ -109,18 +109,37 @@ public class TugbaTagsFilterStepDefinition {
 
     @Then("the table should display the corresponding value.")
     public void the_table_should_display_the_corresponding_value() {
-
+        BrowserUtils.wait(10);
+        List<WebElement> compactCorrespondingValues = quickLaunchPadPage_T.compactCorrespondingValue;
+        List<String> compactCorrespondingValuesText = new ArrayList<>();
+        for (WebElement each:compactCorrespondingValues) {
+        compactCorrespondingValuesText.add(each.getText());
+        }
+        BrowserUtils.wait(10);
+        System.out.println(compactCorrespondingValuesText);
+        Assert.assertTrue(compactCorrespondingValuesText.contains("Compact"));
     }
 
-    @And("Is Not Any Of method")
-    public void is_not_any_of_method() {
+    @Then("the user click Is Not Any Of method")
+    public void the_user_click_is_not_any_of_method() {
+        BrowserUtils.wait(10);
         quickLaunchPadPage_T.isNotAnyOf.click();
     }
 
 
     @Then("the table should not include the corresponding value.")
     public void the_table_should_not_include_the_corresponding_value() {
+        BrowserUtils.wait(10);
+        List<WebElement> compactCorrespondingValues = quickLaunchPadPage_T.compactCorrespondingValue;
+        List<String> compactCorrespondingValuesText = new ArrayList<>();
+        for (WebElement each:compactCorrespondingValues) {
+            compactCorrespondingValuesText.add(each.getText());
+        }
+        BrowserUtils.wait(10);
+        System.out.println(compactCorrespondingValuesText);
+        Assert.assertFalse(compactCorrespondingValuesText.contains("Compact"));
+    }
 
     }
 
-}
+

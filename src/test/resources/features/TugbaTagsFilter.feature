@@ -24,10 +24,12 @@ Feature: Use "Tags" filter under the 'Fleet-Vehicles' page
     And  the user click the Compact option
     Then the user click update button
     Then the table should display the corresponding value.
-
+  @tugba
   Scenario: User selects "Is Not Any Of" method with "Compact" option
 
     Then  the user click the "Is Any Of" option
-    And   Is Not Any Of method
+    Then  the user click Is Not Any Of method
+    Then the user click choose values box
     And   the user click the Compact option
+    Then the user click update button
     Then  the table should not include the corresponding value.
