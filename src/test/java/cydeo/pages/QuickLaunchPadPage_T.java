@@ -19,8 +19,8 @@ public class QuickLaunchPadPage_T {
     @FindBy(xpath = "//span[@class='title title-level-2']")
     public  WebElement vehiclesBtn;
 
-    @FindBy(xpath = "//h1[@class='oro-subtitle']")
-    public WebElement carsPage;
+    //@FindBy(xpath = "//h1[@class='oro-subtitle']")
+    //public WebElement carsPage;
 
     @FindBy(xpath = "//a[@title='Filters']")
     public WebElement filtersIcon;
@@ -35,10 +35,10 @@ public class QuickLaunchPadPage_T {
     public WebElement tagsSelector;
 
     @FindBy(xpath = "(//button[@class='btn dropdown-toggle'])[1]")
-    public WebElement isAnyOfOption1;
+    public WebElement isAnyOfMethod1;
 
     @FindBy(xpath = "(//a[@class='dropdown-item choice-value'])[1]")
-    public  WebElement isAnyOfOption2;
+    public  WebElement isAnyOfmethod2;
 
     @FindBy(xpath = "//a[@class='dropdown-item choice-value']")
     public List<WebElement> isAnyOfDropD;

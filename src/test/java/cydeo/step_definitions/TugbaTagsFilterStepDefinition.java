@@ -38,8 +38,8 @@ public class TugbaTagsFilterStepDefinition {
         actions.moveToElement(quickLaunchPadPage_T.vehiclesBtn).click().build().perform(); //for click
     }
 
-    @And("the user is on the {string} page")
-    public void the_user_is_on_the_page(String string) {
+    @And("the user is on the Cars page")
+    public void the_user_is_on_the_cars_page() {
         BrowserUtils.wait(10);
         Assert.assertTrue(Driver.getDriver().getTitle().contains("Car"));
 
@@ -55,20 +55,20 @@ public class TugbaTagsFilterStepDefinition {
         quickLaunchPadPage_T.manageFilterBtn.click();
     }
 
-    @And("the user selects the {string} filter")
-    public void the_user_selects_the_filter(String string) {
+    @And("the user selects the Tags filter")
+    public void the_user_selects_the_tags_filter() {
         quickLaunchPadPage_T.tagsBtn.click();
     }
 
-    @And("the user click {string} selector")
-    public void the_user_click_selector(String string) {
+    @And("the user click Tags selector")
+    public void the_user_click_tags_selector() {
         quickLaunchPadPage_T.tagsSelector.click();
     }
 
-    @Then("the user click the {string} option")
-    public void the_user_click_the_option(String string) {
+    @Then("the user click the Is Any Of method")
+    public void the_user_click_the_is_any_of_method() {
         BrowserUtils.wait(10);
-        quickLaunchPadPage_T.isAnyOfOption1.click();
+        quickLaunchPadPage_T.isAnyOfMethod1.click();
     }
 
     @And("User sees all methods in the filter")
@@ -80,10 +80,10 @@ public class TugbaTagsFilterStepDefinition {
         System.out.println(expectedMethod);
     }
 
-    @Then("the user click {string} option" )
-    public void the_user_click_option(String string) {
+    @Then("the user click Is Any Of method" )
+    public void the_user_click_is_any_of_method() {
     BrowserUtils.wait(10);
-    quickLaunchPadPage_T.isAnyOfOption2.click();
+    quickLaunchPadPage_T.isAnyOfmethod2.click();
 
 }
     @Then("the user click choose values box")
