@@ -1,7 +1,6 @@
 @PER10-223
 Feature:User Story :
   As a store manager , I should be able to add an event
-
   Background:User should be able to see Add Event menu
     When user login as a store manager
     And user clicks on Fleet menu
