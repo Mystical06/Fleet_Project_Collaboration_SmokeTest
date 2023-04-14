@@ -60,6 +60,46 @@ public class DashboardPage extends BasePage {
    // @FindBy(xpath = "//*[@id=\"grid-custom-entity-grid-650707726\"]/div[2]/div[1]/div/div[3]/div[1]/div/a[1]")
     //public WebElement filter;
 
+    @FindBy(xpath = "//i[@class='fa-filter hide-text']")
+    public WebElement driverFilterIcon;
+
+    @FindBy(xpath = "//a[@class='add-filter-button']")
+    public WebElement manageFilterButton;
+
+    @FindBy(xpath = "/html/body/div[2]/div[2]/div[1]/div[2]/div[3]/div[3]/div[1]/div/div[2]/ul/li[3]/label/span")
+    public  WebElement driverDropdown;
+
+    //Starts Mutullah's locators
+
+    @FindBy(xpath = "//div[contains(@class, 'oro-drop-opener')]")
+    public WebElement driverAllButton;
+
+    @FindBy(xpath = "//button[@class='btn dropdown-toggle']")
+    public WebElement containsButton;
+
+    @FindBy(xpath = "//a[@data-value='4']")
+    public WebElement driverStartsWith;
+
+    @FindBy(xpath = "//input[@name='value']")
+    public WebElement valueEnterField;
+
+    @FindBy(xpath = "//button[contains(@class, 'btn-primary')]")
+    public WebElement updateBtn;
+
+    @FindBy(xpath = "//a[@class='dropdown-item choice-value']")
+    public List<WebElement> actualDropDownElements;
+
+    @FindBy(xpath = "//td[@data-column-label='Driver']")
+    public List<WebElement> selectedNamesOnPage;
+
+    @FindBy(xpath = "//input[@name='value']")
+    public WebElement enteredKeyword;
+
+    @FindBy(xpath = "//a[@data-value='5']")
+    public WebElement driverEndsWith;
+
+
+
 
     //*[@id="grid-custom-entity-grid-650707726"]/div[2]/div[1]/div/div[3]/div[1]/div/a[1]
 
