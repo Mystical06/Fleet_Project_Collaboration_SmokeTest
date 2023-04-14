@@ -8,7 +8,6 @@ Feature:User Story :
     And user clicks on  Vehicle dropdown
     And user clicks any row on general information page
     And user clicks on Add Event menu
-
 @PER10-436
   Scenario:Users can mark the event with any color at the "Add Event" pop up
     When user fills  compulsory areas
