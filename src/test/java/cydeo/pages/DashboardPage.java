@@ -152,7 +152,20 @@ public WebElement filter;
 
     //Fatma's codes end here
 
+    @FindBy(xpath = "//a[@class='btn icons-holder-text no-hash']")
+    public WebElement addEventMenu;
 
+    @FindBy(xpath ="/html/body/div[2]/div[2]/header/div[2]/ul/li[2]/a/span")
+    public WebElement fleetMenu;
+
+    @FindBy(xpath = "//a[@class='btn icons-holder-text no-hash']")
+    public WebElement addEventButton;
+
+    @FindBy(xpath = "//div[@class='message-item message']")
+    public WebElement eventTitle;
+
+    @FindBy(xpath = "//*[@id=\"main-menu\"]/ul/li[1]/a/span")
+    public WebElement dashboardTitle;
 
 
 
