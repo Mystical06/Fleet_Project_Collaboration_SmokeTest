@@ -517,6 +517,7 @@ for given duration
     }
 
 
+
     public static boolean isAttributePresent(WebElement element, String attribute) {
         Boolean result = false;
         try {
@@ -556,4 +557,5 @@ for given duration
         return selectedNamesAsString;
 
     }
+
 }
