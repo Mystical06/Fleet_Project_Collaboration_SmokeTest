@@ -13,7 +13,7 @@ Feature: Use "Tags" filter under the 'Fleet-Vehicles' page
     And   the user click Tags selector
 
 
-  Scenario: User selects "Tags" filter under 'Fleet-Vehicles' page
+  Scenario: User selects "Is Any Of" method with "Compact" option
     Then  the user click the Is Any Of method
     And   User sees all methods in the filter
       | Is Any Of     |

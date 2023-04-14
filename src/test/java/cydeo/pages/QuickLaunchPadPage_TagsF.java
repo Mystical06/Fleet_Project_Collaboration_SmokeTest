@@ -7,9 +7,9 @@ import org.openqa.selenium.support.PageFactory;
 
 import java.util.List;
 
-public class QuickLaunchPadPage_T {
+public class QuickLaunchPadPage_TagsF {
 
-    public QuickLaunchPadPage_T() {
+    public QuickLaunchPadPage_TagsF() {
         PageFactory.initElements(Driver.getDriver(),this);
     }
 
