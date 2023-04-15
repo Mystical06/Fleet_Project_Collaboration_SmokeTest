@@ -1,5 +1,6 @@
 package cydeo.utilities;
 
+import cydeo.pages.DashboardPage;
 import org.junit.Assert;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
@@ -397,6 +398,7 @@ for given duration
         }
     }
 
+
     /**
      * attempts to click on provided element until given time runs out
      *
@@ -501,6 +503,67 @@ for given duration
             e.printStackTrace();
         }
     }
+    public static List<String> driverIsAnyOf(List<WebElement> dropdownElement){
+
+        //List of all ACTUAL <options> as a string
+        List<String> actualOptionsAsString= new ArrayList<>();
+
+        for (WebElement each : dropdownElement) {
+            actualOptionsAsString.add(each.getText());
+        }
+
+        return  actualOptionsAsString;
+
+    }
+
+
+
+    public static boolean isAttributePresent(WebElement element, String attribute) {
+        Boolean result = false;
+        try {
+            String value = element.getAttribute(attribute);
+            if (value != null){
+                result = true;
+            }
+        } catch (Exception e) {}
+
+        return result;
+    }
+
+
+
+
+    public static List<String> driverAllDropdownOptionsAsString(List<WebElement> dropdownElement){
+
+        //List of all ACTUAL <options> as a string
+        List<String> actualOptionsAsString= new ArrayList<>();
+
+        for (WebElement each : dropdownElement) {
+            actualOptionsAsString.add(each.getText());
+        }
+
+        return  actualOptionsAsString;
+
+    }
+
+    public static List<String> selectedNames(List<WebElement> selectedElement) {
+
+        //List of all ACTUAL <options> as a string
+        List<String> selectedNamesAsString = new ArrayList<>();
+
+        for (WebElement each : selectedElement) {
+            selectedNamesAsString.add(each.getText());
+        }
+        return selectedNamesAsString;
+
+    }
+
+//fatma
+    public static void sendKeysWithWait(WebElement field, String text, int timeOut){
+        waitClickability(field,timeOut);
+        field.sendKeys(text);
+    }
+    //Fatma
 
     public static void sendKeysWithWait(WebElement field, String text, int timeOut){
         waitClickability(field,timeOut);
