@@ -565,4 +565,9 @@ for given duration
     }
     //Fatma
 
+    public static void sendKeysWithWait(WebElement field, String text, int timeOut){
+        waitClickability(field,timeOut);
+        field.sendKeys(text);
+    }
+
 }
