@@ -502,4 +502,24 @@ for given duration
         }
     }
 
+//fatma
+    public static void sendKeysWithWait(WebElement field, String text, int timeOut){
+        waitClickability(field,timeOut);
+        field.sendKeys(text);
+    }
+
+    public static List<String> selectedNumbers(List<WebElement> selectedElement) {
+
+        //List of all ACTUAL <options> as a integer
+        List<String> selectedNumberAsString = new ArrayList<>();
+
+        for (WebElement each : selectedElement) {
+            selectedNumberAsString.add(each.getText());
+        }
+        return selectedNumberAsString;
+    }
+
+
+        //Fatma
+
 }

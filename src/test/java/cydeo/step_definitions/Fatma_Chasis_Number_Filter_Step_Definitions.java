@@ -1,21 +1,28 @@
 package cydeo.step_definitions;
 
-import cydeo.pages.BasePage;
+
 import cydeo.pages.DashboardPage;
 import cydeo.pages.LoginPage;
+import cydeo.utilities.BrowserUtils;
 import cydeo.utilities.ConfigurationReader;
 import cydeo.utilities.Driver;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
-import org.openqa.selenium.interactions.Actions;
+
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+
+import java.util.List;
 
 public class Fatma_Chasis_Number_Filter_Step_Definitions {
     LoginPage loginPage = new LoginPage();
   DashboardPage dashboard = new DashboardPage();
-  WebDriverWait wait = new WebDriverWait(Driver.getDriver(),10);
+
+
+
 
 
     @Given("user is on login page")
@@ -49,7 +56,8 @@ public class Fatma_Chasis_Number_Filter_Step_Definitions {
   }
 
     @When("the user clicks on filters icon")
-    public void the_user_clicks_on_filters_icon() {
+    public void the_user_clicks_on_filters_icon() throws InterruptedException {
+        Thread.sleep(2000);
 dashboard.filter.click();
     }
    @When("the user clicks on manage filters and selects Chassis number")
@@ -179,4 +187,67 @@ dashboard.BetweenMethod.click();
 
     }
 
-}
+    @Then("the user select Between method")
+    public void theUserSelectBetweenMethod() throws InterruptedException {
+        dashboard.MethodDropDown.click();
+        Thread.sleep(2000);
+        dashboard.BetweenMethod.click();
+        Thread.sleep(2000);
+    }
+
+
+    @Then("the user select {string} method")
+    public void theUserSelectMethod(String methodName) {
+       dashboard.selectFilterMethod(methodName);
+    }
+
+    @And("The user enters {string} and {string} and clicks update button")
+    public void theUserEntersAndAndClicksUpdateButton(String value1, String value2) {
+        dashboard.enterMethodValues(value1,value2);
+
+            }
+
+
+
+
+    @Then("the user verifies the results based on the values entered {string} and {string}")
+    public void theUserVerifiesTheResultsBasedOnTheValuesEnteredAnd(String value1, String value2) throws InterruptedException {
+
+            Thread.sleep(2000);
+        List<String> selectedNumbersWithEnteredKeyword = BrowserUtils.selectedNumbers(dashboard.SelectedChassisNumberBetweenList);
+        System.out.println(selectedNumbersWithEnteredKeyword);
+
+           for (String dataWE : selectedNumbersWithEnteredKeyword) {
+               double data = Double.parseDouble(dataWE.replace(",", ""));
+               Assert.assertTrue(data >= Double.parseDouble(value1) && data <= Double.parseDouble(value2));
+        }
+
+      }
+
+
+    @Then("the user enters {string} in the search box and clicks update button")
+    public void theUserEntersInTheSearchBoxAndClicksUpdateButton(String value) throws InterruptedException {
+        dashboard.MethodDropDown.click();
+        Thread.sleep(2000);
+        dashboard.EqualsMethod.click();
+        dashboard.enterMethodValues(value);
+    }
+
+    @Then("the user verifies the results based on the values entered {string}")
+    public void theUserVerifiesTheResultsBasedOnTheValuesEntered(String val) throws InterruptedException {
+
+        Thread.sleep(2000);
+        List<String> selectedNumbersWithEnteredKeyword = BrowserUtils.selectedNumbers(dashboard.SelectedChassisNumberBetweenList);
+        System.out.println(selectedNumbersWithEnteredKeyword);
+
+        for (String dataWE : selectedNumbersWithEnteredKeyword) {
+            double data = Double.parseDouble(dataWE.replace(",", ""));
+            Assert.assertTrue(data == Double.parseDouble(val));
+        }
+       }
+
+
+    }
+
+
+
