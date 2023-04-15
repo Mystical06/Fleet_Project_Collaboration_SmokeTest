@@ -22,26 +22,22 @@ Feature: Selecting Chassis Number filter under the Manage Filter on the All Car 
 
   4- When the user selects the "Equals" method with numeric values, the results should match the specified value exactly
 
-  @1
-  Scenario: The user select the Chassis Number filter under the Fleet-Vehicles module
-   Given user is on login page
+  Background:
+    Given user is on login page
     Given User logs in as a store manager
     When the user lands on Dashboard
     And the user clicks on Fleet tab
     And the user clicks on Vehicles option under fleet tab
     And the user clicks on filters icon
+
+  @1
+  Scenario: The user select the Chassis Number filter under the Fleet-Vehicles module
     And the user clicks on manage filters and selects Chassis number
     Then the user should see Chassis number button
 
 
 @2
   Scenario: The user should see filter methods under the Chassis Number
-  Given user is on login page
-     Given User logs in as a store manager
-    When the user lands on Dashboard
-    And the user clicks on Fleet tab
-    And the user clicks on Vehicles option under fleet tab
-    And the user clicks on filters icon
     And the user clicks on manage filters and selects Chassis number
     Then the user should see Chassis number button
     Then the user clicks on Chassis number button to see various methods
@@ -59,26 +55,14 @@ Feature: Selecting Chassis Number filter under the Manage Filter on the All Car 
 
 @3
   Scenario: The user selects the Between method with numeric values, the results should be between the specified values
-    Given user is on login page
-    Given User logs in as a store manager
-    When the user lands on Dashboard
-    And the user clicks on Fleet tab
-    And the user clicks on Vehicles option under fleet tab
-       And the user clicks on filters icon
     And the user clicks on manage filters and selects Chassis number
     Then the user should see Chassis number button
     Then the user clicks on Chassis number button to see various methods
     Then the user select Between method
-    Then the user enters numeric values in the search box and clicks update button
+    And The user enters "5000" and "20000" and clicks update button
     Then the user verifies the results based on the values entered
 
   Scenario: The user selects the Equals method with numeric values, the results should match the specified value exactly
-    Given user is on login page
-    Given User logs in as a store manager
-    When the user lands on Dashboard
-    And the user clicks on Fleet tab
-    And the user clicks on Vehicles option under fleet tab
-    And the user clicks on filters icon
     And the user clicks on manage filters and selects Chassis number
     Then the user should see Chassis number button
     Then the user clicks on Chassis number button to see various methods
