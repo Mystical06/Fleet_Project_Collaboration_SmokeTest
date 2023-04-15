@@ -15,7 +15,7 @@ Feature: Use "Tags" filter under the 'Fleet-Vehicles' page
 
   Scenario: User selects "Is Any Of" method with "Compact" option
     Then  the user click the Is Any Of method
-    And   User sees all methods in the filter
+    And   User sees all methods in the filters
       | Is Any Of     |
       | Is Not Any Of |
 

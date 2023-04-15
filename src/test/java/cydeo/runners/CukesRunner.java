@@ -17,7 +17,7 @@ import org.junit.runner.RunWith;
         glue = "cydeo/step_definitions",
         dryRun = false,
 
-        tags = "@PER10-441",
+        tags = "@tugba",
 
         publish = false
 )

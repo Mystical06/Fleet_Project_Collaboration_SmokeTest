@@ -1,6 +1,5 @@
 package cydeo.utilities;
 
-import cydeo.pages.DashboardPage;
 import org.junit.Assert;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
@@ -559,12 +558,6 @@ for given duration
     }
 
 //fatma
-    public static void sendKeysWithWait(WebElement field, String text, int timeOut){
-        waitClickability(field,timeOut);
-        field.sendKeys(text);
-    }
-    //Fatma
-
     public static void sendKeysWithWait(WebElement field, String text, int timeOut){
         waitClickability(field,timeOut);
         field.sendKeys(text);

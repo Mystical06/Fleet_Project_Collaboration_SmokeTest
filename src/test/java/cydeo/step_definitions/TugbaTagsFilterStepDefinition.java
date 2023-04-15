@@ -68,8 +68,8 @@ public class TugbaTagsFilterStepDefinition {
         quickLaunchPadPage_TagsF.isAnyOfMethod1.click();
     }
 
-    @And("User sees all methods in the filter")
-    public void user_sees_all_methods_in_the_filter(List<String> expectedMethod) {
+    @And("User sees all methods in the filters")
+    public void user_sees_all_methods_in_the_filters(List<String> expectedMethod) {
         BrowserUtils.wait(10);
         List<String> actualMethod = BrowserUtils.driverIsAnyOf(quickLaunchPadPage_TagsF.isAnyOfDropD);
         Assert.assertEquals(expectedMethod,actualMethod);
