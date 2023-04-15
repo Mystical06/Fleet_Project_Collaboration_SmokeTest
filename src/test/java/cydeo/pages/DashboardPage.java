@@ -2,6 +2,7 @@ package cydeo.pages;
 
 import cydeo.utilities.BrowserUtils;
 import cydeo.utilities.Driver;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -57,18 +58,18 @@ public class DashboardPage extends BasePage {
 
     //Fatma's codes starts from here
 
-   // @FindBy(xpath = "//*[@id=\"grid-custom-entity-grid-650707726\"]/div[2]/div[1]/div/div[3]/div[1]/div/a[1]")
+    // @FindBy(xpath = "//*[@id=\"grid-custom-entity-grid-650707726\"]/div[2]/div[1]/div/div[3]/div[1]/div/a[1]")
     //public WebElement filter;
 
 
     //*[@id="grid-custom-entity-grid-650707726"]/div[2]/div[1]/div/div[3]/div[1]/div/a[1]
 
     //*[@id="grid-custom-entity-grid-650707726"]/div[2]/div[1]/div/div[3]/div[1]/div/a[1]
-@FindBy(className = "fa-filter")
-public WebElement filter;
+    @FindBy(className = "fa-filter")
+    public WebElement filter;
 
-  @FindBy(id="ui-multiselect-0-0-option-4")
-  public WebElement SelectChassisNumber;
+    @FindBy(id = "ui-multiselect-0-0-option-4")
+    public WebElement SelectChassisNumber;
 
     @FindBy(className = "add-filter-button")
     public WebElement ManageFilters;
@@ -78,7 +79,7 @@ public WebElement filter;
     @FindBy(xpath = "/html/body/div[2]/div[2]/div[1]/div[2]/div[3]/div[3]/div[1]/div/span/div[5]/div[2]/div/div[1]/button/span")
     public WebElement MethodDropDown;
 
-   @FindBy(xpath = "//button[@class='btn dropdown-toggle']")
+    @FindBy(xpath = "//button[@class='btn dropdown-toggle']")
     public WebElement SelectedMethodCheck;
     @FindBy(xpath = "//a[@data-value='7']")
     public WebElement BetweenMethod;
@@ -110,6 +111,42 @@ public WebElement filter;
     @FindBy(xpath = "//a[@data-value='filter_not_empty_option']")
     public WebElement IsNotEmptyMethod;
 
+    @FindBy(xpath = "//input[@name='value']")
+    public WebElement Input1;
+
+    @FindBy(xpath = "//input[@name='value_end']")
+    public WebElement Input2;
+
+    @FindBy(xpath = "//button[contains(@class, 'btn-primary')]")
+    public WebElement UpdateButton;
+
+    @FindBy(xpath = "//tbody[@class='grid-body']/tr/td[6]")
+    private List<WebElement> ChassisBetweenList;
+
+
+    public void enterMethodValues(String startVal, String endVal){
+        BrowserUtils.wait(1);
+        BrowserUtils.sendKeysWithWait(Input1,startVal,2);
+        BrowserUtils.sendKeysWithWait(Input2,endVal,2);
+        UpdateButton.click();
+    }
+
+
+    public List<WebElement> verifyChassisBetweenList() {
+        By dataLocator = By.cssSelector("tr[class='grid-row'] [data-column-label='Chasis Number']");
+        List<WebElement> allData = driver.findElements(dataLocator);
+        return allData;
+    }
+}
+
+
+
+
+
+
+
+
+
     //Fatma's codes end here
 
 
@@ -131,4 +168,3 @@ public WebElement filter;
 
 
 
-}
