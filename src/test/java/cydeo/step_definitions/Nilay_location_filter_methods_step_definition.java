@@ -2,16 +2,12 @@ package cydeo.step_definitions;
 
 import cydeo.pages.LoginPage;
 import cydeo.utilities.BrowserUtils;
+import cydeo.utilities.ConfigurationReader;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import io.cucumber.java.sl.In;
 import org.junit.Assert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.Select;
 
 import java.util.List;
-import java.util.Objects;
 
 public class Nilay_location_filter_methods_step_definition {
     public LoginPage loginPage = new LoginPage();
@@ -73,137 +69,92 @@ public class Nilay_location_filter_methods_step_definition {
     @Then("User should see below methods")
     public void user_Should_See_Below_Methods(List<String> expectedMethods) throws InterruptedException {
         Thread.sleep(2000);
-
-       WebElement methods = loginPage.methodsDropDown1N;
-
-       String actualMethod = methods.getText().trim();
-       System.out.println(actualMethod);
-       //List<String> actualMethods = BrowserUtils.dropdownOptionsAsString(loginPage.methodsDropDownN);
-        //System.out.println(actualMethod);
+        List<String> actualMethodDropDown = BrowserUtils.driverAllDropdownOptionsAsString(loginPage.Mdropdown);
+        Assert.assertEquals(expectedMethods, actualMethodDropDown);
         System.out.println(expectedMethods);
-
-        //Assert.assertEquals(actualMethods,expectedMethods);
-        // Assert.assertEquals(expectedMethods, actualMethod);
+        System.out.println(actualMethodDropDown);
         Thread.sleep(2000);
 
-    }
-
-/*
-    @Then("user validate contains method is displayed")
-    public void user_validate_contains_method_is_displayed() throws InterruptedException{
-        Thread.sleep(2000);
-        String expectedText = "Contains";
-        System.out.println(expectedText);
-        String actualText = loginPage.containsMethodN.getText();
-        System.out.println(actualText);
-        Assert.assertEquals(actualText, expectedText);
-        Thread.sleep(2000);
-    }
-
-    @Then("user validate does not contains method is displayed")
-    public void user_validate_does_not_contains_method_is_displayed() throws InterruptedException{
-        loginPage.containsMethodN.click();
-        Thread.sleep(2000);
-        loginPage.doesNotContainMethodN.click();
-        String expectedText = "Does Not Contain";
-        System.out.println(expectedText);
-        String actualText = loginPage.doesNotContainMethodN.getText();
-        System.out.println(actualText);
-        Assert.assertEquals(actualText, expectedText);
-        Thread.sleep(2000);
-    }
-
-    @Then("user validate is equal to method is displayed")
-    public void user_validate_is_equal_to_method_is_displayed() throws InterruptedException {
-        loginPage.containsMethodN.click();
-        Thread.sleep(2000);
-        loginPage.isEqualToMethodN.click();
-        String expectedText = "Is Equal To";
-        System.out.println(expectedText);
-        String actualText = loginPage.isEqualToMethodN.getText();
-        System.out.println(actualText);
-        Assert.assertEquals(actualText, expectedText);
-    }
-
-    @Then("user validate starts with method is displayed")
-    public void user_validate_starts_with_method_is_displayed() {
-        String expectedText = "Starts With";
-        System.out.println(expectedText);
-        String actualText = loginPage.startsWithMethodN.getText();
-        System.out.println(actualText);
-        Assert.assertEquals(actualText, expectedText);
-    }
-
-    @Then("user validate ends with method is displayed")
-    public void user_validate_ends_with_method_is_displayed() {
-        String expectedText = "Ends With";
-        System.out.println(expectedText);
-        String actualText = loginPage.endsWithMethodN.getText();
-        System.out.println(actualText);
-        Assert.assertEquals(actualText, expectedText);
-    }
-
-
-    @Then("user validate is any of method is displayed")
-    public void user_validate_is_any_of_method_is_displayed() {
-        String expectedText = "Is Any Of";
-        System.out.println(expectedText);
-        String actualText = loginPage.isAnyOfMethodN.getText();
-        System.out.println(actualText);
-        Assert.assertEquals(actualText, expectedText);
-    }
-
-    @Then("user validate is not any of method is displayed")
-    public void user_validate_is_not_any_of_method_is_displayed() {
-        String expectedText = "Is Not Any Of";
-        System.out.println(expectedText);
-        String actualText = loginPage.isNotAnyOfMethodN.getText();
-        System.out.println(actualText);
-        Assert.assertEquals(actualText, expectedText);
-    }
-
-    @Then("user validate is empty method is displayed")
-    public void user_validate_is_empty_method_is_displayed() {
-        String expectedText = "Is Empty";
-        System.out.println(expectedText);
-        String actualText = loginPage.emptyMethodN.getText();
-        System.out.println(actualText);
-        Assert.assertEquals(actualText, expectedText);
-    }
-
-    @Then("user validate is not empty method is displayed")
-    public void user_validate_is_not_empty_method_is_displayed() {
-        String expectedText = "Is Not Empty";
-        System.out.println(expectedText);
-        String actualText = loginPage.isNotEmptyMethodN.getText();
-        System.out.println(actualText);
-        Assert.assertEquals(actualText, expectedText);
-    }
-*/
-
-    @Then("user selects contains method")
-    public void user_selects_contains_method(String string) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
     }
 
     @Then("user enters keyword in the search box and click update button")
-    public void user_enters_keyword_in_the_search_box_and_click_update_button() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+    public void user_enters_keyword_in_the_search_box_and_click_update_button() throws InterruptedException {
+        loginPage.methodSearchField.sendKeys(ConfigurationReader.getProperty("locationfilter.searchtext"));
+        loginPage.methodUpdateBtn.click();
+        Thread.sleep(3000);
     }
 
     @Then("user verifies the results")
-    public void user_verifies_the_results() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+    public List<String> user_verifies_the_results() throws InterruptedException {
+        Thread.sleep(2000);
+        List<String> containsResult = BrowserUtils.methodAllResultsAsString(loginPage.containResults);
+        System.out.println(containsResult);
+        String expectedResult = ConfigurationReader.getProperty("locationfilter.searchtext");
+        System.out.println(expectedResult);
+
+        for (String each : containsResult) {
+            boolean result2 = each.contains(expectedResult);
+           System.out.println(result2);
+
+        }
+
+
+        return containsResult;
     }
 
     @Then("user selects does not contain method")
-    public void user_selects_does_not_contain_method(String string) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+    public void user_selects_does_not_contain_method() {
+        loginPage.doesNotContainMethodN.click();
     }
 
 
+    @Then("user enters keyword in the search box and clicks on update button")
+    public void user_Enters_Keyword_In_The_Search_Box_And_Clicks_On_Update_Button() {
+        loginPage.methodSearchField.sendKeys(ConfigurationReader.getProperty("locationfilter.searchtext"));
+        loginPage.methodUpdateBtn.click();
+    }
+
+
+    @Then("user clicks on the view per page button and select last option")
+    public void userClicksOnTheViewPerPageButtonAndSelectLastOption() throws InterruptedException{
+        Thread.sleep(2000);
+        loginPage.ViewPerPageBtn.click();
+        Thread.sleep(2000);
+        loginPage.lastOption.click();
+
+
+
+    }
+    @Then("user verifies the results on WebTable")
+    public List<String> user_Verifies_The_Results_On_WebTable() throws InterruptedException {
+        Thread.sleep(2000);
+        List<String> containsResult = BrowserUtils.methodAllResultsAsString(loginPage.containResults);
+        System.out.println(containsResult);
+        String expectedResult = ConfigurationReader.getProperty("locationfilter.searchtext");
+        System.out.println(expectedResult);
+
+        for (String each : containsResult) {
+            boolean result2 = each.contains(expectedResult);
+            System.out.println(!result2);
+
+        }
+        return containsResult;
+
+
+
+
+    }
+
+
+
+    @Then("user clicks on the second page")
+    public void userClicksOnTheSecondPage() throws InterruptedException{
+        Thread.sleep(3000);
+        loginPage.nextPage.click();
+        Thread.sleep(2000);
+        loginPage.ViewPerPageBtn.click();
+        Thread.sleep(2000);
+        loginPage.lastOption.click();
+        Thread.sleep(2000);
+    }
 }
