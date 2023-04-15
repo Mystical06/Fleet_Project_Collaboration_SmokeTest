@@ -3,14 +3,19 @@ package cydeo.step_definitions;
 import cydeo.pages.BasePage;
 import cydeo.pages.DashboardPage;
 import cydeo.pages.LoginPage;
+import cydeo.utilities.BrowserUtils;
 import cydeo.utilities.ConfigurationReader;
 import cydeo.utilities.Driver;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.util.List;
 
 public class Fatma_Chasis_Number_Filter_Step_Definitions {
     LoginPage loginPage = new LoginPage();
@@ -179,4 +184,41 @@ dashboard.BetweenMethod.click();
 
     }
 
-}
+    @Then("the user select Between method")
+    public void theUserSelectBetweenMethod() throws InterruptedException {
+        dashboard.MethodDropDown.click();
+        Thread.sleep(2000);
+        dashboard.BetweenMethod.click();
+        Thread.sleep(2000);
+    }
+
+
+    @And("The user enters {string} and {string} and clicks update button")
+    public void theUserEntersAndAndClicksUpdateButton(String value1, String value2) {
+        dashboard.enterMethodValues(value1,value2);
+        dashboard.UpdateButton.click();
+    }
+
+
+
+
+    @Then("the user verifies the results based on the values entered")
+    public void theUserVerifiesTheResultsBasedOnTheValuesEntered() {
+
+
+    }
+
+
+    @Then("All the results in the table are between {string} and {string}")
+    public void all_the_results_in_the_table_are_between_and(String val1, String val2) {
+      //  BrowserUtils.wait(1);
+      //  List<WebElement> allData = filtersPage.verifyFilteredTableData(this.filterName);
+      //  for (WebElement dataWE : allData) {
+          //  BrowserUtils.wait(0.1);
+          //  double data = Double.parseDouble(dataWE.getText().replace(",",""));
+           // Assert.assertTrue(data >= Double.parseDouble(val1) && data <= Double.parseDouble(val2));
+        }
+    }
+
+
+
