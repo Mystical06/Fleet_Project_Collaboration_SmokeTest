@@ -131,10 +131,6 @@ public class DashboardPage extends BasePage {
     @FindBy(xpath = "//tbody[@class='grid-body']/tr/td[6]")
     public List<WebElement> SelectedChassisNumberBetweenList;
 
-
-
-
-
     public void enterMethodValues(String val) {
         BrowserUtils.wait(1);
         BrowserUtils.sendKeysWithWait(Input1, val, 2);
@@ -166,9 +162,6 @@ public class DashboardPage extends BasePage {
 
     //Fatma's codes end here
 
-
-
-
     @FindBy(xpath = "//a[@class='btn icons-holder-text no-hash']")
     public WebElement addEventMenu;
 
@@ -178,11 +171,8 @@ public class DashboardPage extends BasePage {
     @FindBy(xpath = "//a[@class='btn icons-holder-text no-hash']")
     public WebElement addEventButton;
 
-
     @FindBy(xpath = "//div[@class='message-item message']")
     public WebElement eventTitle;
-
-
 
     @FindBy(xpath = "//*[@id=\"main-menu\"]/ul/li[1]/a/span")
     public WebElement dashboardTitle;
