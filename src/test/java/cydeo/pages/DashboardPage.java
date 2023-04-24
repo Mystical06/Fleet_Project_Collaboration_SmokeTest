@@ -2,7 +2,6 @@ package cydeo.pages;
 
 import cydeo.utilities.BrowserUtils;
 import cydeo.utilities.Driver;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -34,7 +33,7 @@ public class DashboardPage extends BasePage {
     @FindBy(xpath = "//span[.='Vehicles']")
     public WebElement vehiclesOption;
 
-    @FindBy(xpath = "/html/body/div[2]/div[2]/div[1]/div[2]/div[3]/div[3]/div[2]/div[2]/div[2]/div/table/tbody/tr[1]/td[21]/div/div/a")
+    @FindBy(xpath = "//table/tbody/tr[1]/td[21]/div/div/a")
     public WebElement threeDotsInCarsPage;
 
     @FindBy(xpath = "/html/body/ul/li/ul/li[3]")
@@ -52,16 +51,37 @@ public class DashboardPage extends BasePage {
     @FindBy(xpath = "//td[@data-column-label='License Plate']")
     public List<WebElement> licencePlateColumn;
 
-    @FindBy(xpath = "//table/tbody/tr[1]/td[2]")
+    @FindBy(xpath = "/html/body/div[2]/div[2]/div[1]/div[2]/div[3]/div[3]/div[2]/div[2]/div[2]/div/table/tbody/tr[1]/td[2]")
     public WebElement anyLicensePlate;
 
 //Mustafa's codes end here
 
+
+
+
+
     //Fatma's codes starts from here
 
 
+
     @FindBy(xpath = "//i[@class='fa-filter hide-text']")
+
+    // @FindBy(xpath = "//*[@id=\"grid-custom-entity-grid-650707726\"]/div[2]/div[1]/div/div[3]/div[1]/div/a[1]")
+    //public WebElement filter;
+
+    @FindBy(xpath = "//i[@class='fa-filter hide-text']")
+    public WebElement driverFilterIcon;
+
+    @FindBy(xpath = "//a[@class='add-filter-button']")
+    public WebElement manageFilterButton;
+
+    @FindBy(xpath = "/html/body/div[2]/div[2]/div[1]/div[2]/div[3]/div[3]/div[1]/div/div[2]/ul/li[3]/label/span")
+
+    public  WebElement driverDropdown;
+
+    @FindBy(className = "fa-filter")
     public WebElement filter;
+
 
     @FindBy(id = "ui-multiselect-0-0-option-4")
     public WebElement SelectChassisNumber;
@@ -120,6 +140,7 @@ public class DashboardPage extends BasePage {
 
 
 
+
     public void enterMethodValues(String startVal, String endVal) {
         BrowserUtils.sendKeysWithWait(Input1, startVal, 1);
         BrowserUtils.sendKeysWithWait(Input2, endVal, 1);
@@ -148,15 +169,71 @@ public class DashboardPage extends BasePage {
         }
     }
 
-
-}
-
+    public void enterMethodValues(String startVal, String endVal) {
+        BrowserUtils.wait(1);
+        BrowserUtils.sendKeysWithWait(Input1, startVal, 2);
+        BrowserUtils.sendKeysWithWait(Input2, endVal, 2);
+        UpdateButton.click();
+    }
 
     //Fatma's codes end here
 
 
 
 
+    @FindBy(xpath = "//a[@class='btn icons-holder-text no-hash']")
+    public WebElement addEventMenu;
+
+    @FindBy(xpath = "/html/body/div[2]/div[2]/header/div[2]/ul/li[2]/a/span")
+    public WebElement fleetMenu;
+
+    @FindBy(xpath = "//a[@class='btn icons-holder-text no-hash']")
+    public WebElement addEventButton;
+
+
+    @FindBy(xpath = "//div[@class='message-item message']")
+    public WebElement eventTitle;
+
+
+}
+=======
+    @FindBy(xpath = "//*[@id=\"main-menu\"]/ul/li[1]/a/span")
+    public WebElement dashboardTitle;
+r
+
+
+    //Starts Mutullah's locators
+
+    @FindBy(xpath = "//div[contains(@class, 'oro-drop-opener')]")
+    public WebElement driverAllButton;
+
+    @FindBy(xpath = "//button[@class='btn dropdown-toggle']")
+    public WebElement containsButton;
+
+    @FindBy(xpath = "//a[@data-value='4']")
+    public WebElement driverStartsWith;
+
+    @FindBy(xpath = "//input[@name='value']")
+    public WebElement valueEnterField;
+
+    @FindBy(xpath = "//button[contains(@class, 'btn-primary')]")
+    public WebElement updateBtn;
+
+    @FindBy(xpath = "//a[@class='dropdown-item choice-value']")
+    public List<WebElement> actualDropDownElements;
+
+    @FindBy(xpath = "//td[@data-column-label='Driver']")
+    public List<WebElement> selectedNamesOnPage;
+
+    @FindBy(xpath = "//input[@name='value']")
+    public WebElement enteredKeyword;
+
+    @FindBy(xpath = "//a[@data-value='5']")
+    public WebElement driverEndsWith;
+
+
+
+}
 
 
 
