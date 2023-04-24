@@ -6,6 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+
 import java.util.List;
 
 public class DashboardPage extends BasePage {
@@ -60,6 +61,10 @@ public class DashboardPage extends BasePage {
 
 
     //Fatma's codes starts from here
+
+
+
+    @FindBy(xpath = "//i[@class='fa-filter hide-text']")
 
     // @FindBy(xpath = "//*[@id=\"grid-custom-entity-grid-650707726\"]/div[2]/div[1]/div/div[3]/div[1]/div/a[1]")
     //public WebElement filter;
@@ -131,8 +136,38 @@ public class DashboardPage extends BasePage {
     public WebElement UpdateButton;
 
     @FindBy(xpath = "//tbody[@class='grid-body']/tr/td[6]")
-    private List<WebElement> ChassisBetweenList;
+    public List<WebElement> SelectedChassisNumberBetweenList;
 
+
+
+
+    public void enterMethodValues(String startVal, String endVal) {
+        BrowserUtils.sendKeysWithWait(Input1, startVal, 1);
+        BrowserUtils.sendKeysWithWait(Input2, endVal, 1);
+        UpdateButton.click();
+    }
+
+    public void enterMethodValues(String val) {
+        BrowserUtils.wait(1);
+        BrowserUtils.sendKeysWithWait(Input1, val, 2);
+        UpdateButton.click();
+    }
+
+
+    @FindBy(css = "div.btn-group.btn-block.open li")
+    private List<WebElement> allFilterMethods;
+
+    public void selectFilterMethod(String methodName) {
+        int size = allFilterMethods.size();
+
+        for (WebElement allFilterMethod : allFilterMethods) {
+            String actualMethodName = allFilterMethod.getText();
+            if (actualMethodName.equalsIgnoreCase(methodName)) {
+                BrowserUtils.clickWithWait((By) allFilterMethod, 2);
+                break;
+            }
+        }
+    }
 
     public void enterMethodValues(String startVal, String endVal) {
         BrowserUtils.wait(1);
@@ -155,11 +190,16 @@ public class DashboardPage extends BasePage {
     @FindBy(xpath = "//a[@class='btn icons-holder-text no-hash']")
     public WebElement addEventButton;
 
+
     @FindBy(xpath = "//div[@class='message-item message']")
     public WebElement eventTitle;
 
+
+}
+=======
     @FindBy(xpath = "//*[@id=\"main-menu\"]/ul/li[1]/a/span")
     public WebElement dashboardTitle;
+r
 
 
     //Starts Mutullah's locators
