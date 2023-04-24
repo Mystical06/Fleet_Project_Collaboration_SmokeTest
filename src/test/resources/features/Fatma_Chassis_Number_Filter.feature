@@ -1,27 +1,7 @@
-@ff
+  @PER10-468
+
 Feature: Selecting Chassis Number filter under the Manage Filter on the All Car page
 
-  User Story :
-  As a store manager, I should be able to use the "Chassis Number" filter under the 'Manage Filter' on the All Car page
-  Acceptance Criteria:
-
-  1- The user can select the "Chassis Number" filter under the 'Fleet-Vehicles' module
-
-  2- "Chassis Number" filter should provide the methods shown below:
-  -> Between
-  -> Not Between
-  -> Equals
-  -> Not Equals
-  -> More Than
-  -> Less Than
-  -> Equals or More Than
-  -> Equals or Less Than
-  -> Is Empty
-  -> Is Not Empty
-
-  3- When the user selects the "Between" method with numeric values, the results should be between the specified values
-
-  4- When the user selects the "Equals" method with numeric values, the results should match the specified value exactly
 
   Background:
     Given user is on login page
@@ -31,13 +11,13 @@ Feature: Selecting Chassis Number filter under the Manage Filter on the All Car 
     And the user clicks on Vehicles option under fleet tab
     And the user clicks on filters icon
 
-  @1
+  @PER10-464
   Scenario: The user select the Chassis Number filter under the Fleet-Vehicles module
     And the user clicks on manage filters and selects Chassis number
     Then the user should see Chassis number button
 
 
-@2
+  @PER10-465
   Scenario: The user should see filter methods under the Chassis Number
     And the user clicks on manage filters and selects Chassis number
     Then the user should see Chassis number button
@@ -54,7 +34,7 @@ Feature: Selecting Chassis Number filter under the Manage Filter on the All Car 
     Then the user validate Is Not Empty method is displayed
 
 
-@3
+  @PER10-466
   Scenario: The user selects the "Between" method with numeric values, the results should be between the specified values
     And the user clicks on manage filters and selects Chassis number
     Then the user should see Chassis number button
@@ -65,7 +45,7 @@ Feature: Selecting Chassis Number filter under the Manage Filter on the All Car 
 
 
 
-@4
+  @PER10-467
   Scenario: The user selects the Equals method with numeric values, the results should match the specified value exactly
     And the user clicks on manage filters and selects Chassis number
     Then the user should see Chassis number button
